@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/glidejs/3.5.1/css/glide.core.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/glidejs/3.5.1/css/glide.theme.min.css"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              textPrimary: "#717171",
+              primary: "#4CAF4F",
+              heading: "#4D4D4D",
+            },
+          },
+          screens: {
+            xss: "320px",
+            xs: "420px",
+            // => @media (min-width: 450px) { ... }
+
+            sm: "575px",
+            // => @media (min-width: 576px) { ... }
+
+            md: "768px",
+
+            mdb: "800px",
+            // => @media (min-width: 768px) { ... }
+
+            lg: "992px",
+            // => @media (min-width: 992px) { ... }
+            xl: "1201px",
+            // => @media (min-width: 1200px) { ... }
+
+            "2xl": "1420px",
+
+            "3xl": "1620px",
+
+            "4xl": "1820px",
+            "4xxl": "2100px",
+            "5xl": "2200px",
+            "6xl": "2510px",
+            "7xl": "2820px",
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        overflow-x: hidden;
+      }
+      .drawer-transition {
+        transition: width 0.5s;
+      }
+      .wrap {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav
+      class="2xl:px-28 px-10 w-full py-5 h-[84px] bg-[#F5F7FA] flex items-center"
+    >
+      <div class="lg:w-1/5 w-screen flex justify-between items-center">
+        <a href="/" class="flex items-center w-56">
+          <img src="./assets/logo.svg" />
+          <img src="./assets/Nexcent.svg" />
+        </a>
+
+        <div class="lg:hidden block">
+          <img
+            src="./assets/hamburger.svg"
+            loading="lazy"
+            class="w-8 h-8"
+            id="menu_icon"
+          />
+        </div>
+
+        <div
+          id="drawer"
+          class="fixed top-0 right-0 h-full w-0 bg-gray-800 text-white p-0 drawer-transition overflow-hidden"
+        >
+          <p>This is the drawer content.</p>
+          <button id="close_button" class="text-white">Close</button>
+        </div>
+      </div>
+
+      <div
+        class="justify-center 2xl:ml-20 lg:ml-10 text-base w-1/2 lg:flex hidden"
+      >
+        <div class="2xl:ml-20 lg:ml-10">
+          <p class="text-base text-[#18191F] 4xxl:text-2xl cursor-pointer">
+            Home
+          </p>
+        </div>
+        <div class="2xl:ml-20 lg:ml-10 text-base">
+          <p class="text-base text-[#18191F] 4xxl:text-2xl cursor-pointer">
+            Services
+          </p>
+        </div>
+        <div class="2xl:ml-20 lg:ml-10 text-base">
+          <p class="text-base text-[#18191F] 4xxl:text-2xl cursor-pointer">
+            Feature
+          </p>
+        </div>
+        <div class="2xl:ml-20 lg:ml-10 text-base">
+          <p class="text-base text-[#18191F] 4xxl:text-2xl cursor-pointer">
+            Product
+          </p>
+        </div>
+        <div class="2xl:ml-20 lg:ml-10 text-base">
+          <p class="text-base text-[#18191F] 4xxl:text-2xl cursor-pointer">
+            Testimonial
+          </p>
+        </div>
+        <div class="2xl:ml-20 lg:ml-10 text-base">
+          <p class="text-base text-[#18191F] 4xxl:text-2xl cursor-pointer">
+            FAQ
+          </p>
+        </div>
+      </div>
+
+      <div class="2xl:ml-20 w-1/3 justify-end lg:flex hidden items-center">
+        <div class="ml-10">
+          <p class="text-primary text-base 4xxl:text-2xl cursor-pointer">
+            Login
+          </p>
+        </div>
+        <div class="ml-10">
+          <button class="bg-primary px-4 py-2 rounded text-white text-lg">
+            Sign up
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!--Hero section starts-->
+
+    <section
+      class="w-screen lg:h-[600px] 4xxl:h-[800px] bg-[#F5F7FA] flex lg:flex-row flex-col justify-around lg:py-28"
+    >
+      <div class="lg:w-[657px] w-[400px] md:w-[500px] lg:mt-10 mt-2">
+        <p
+          class="2xl:text-[3rem] lg:text-[2.5rem] text-[2rem] 4xxl:text-[4rem] lg:px-12 xl:px-0 px-10 font-bold 2xl:w-[35rem] lg:w-[30rem] 4xxl:w-[40rem]"
+        >
+          Lessons and insights <span class="text-[#4CAF4F]">from 8 years</span>
+        </p>
+        <p
+          class="mt-4 lg:text-[1.5rem] 2xl:text-base 4xl:text-xl 5xl:text-2xl text-textPrimary lg:pl-12 xl:pl-0 pl-10 text-[1rem]"
+        >
+          Where to grow your business as a photographer: site or social media?
+        </p>
+
+        <div class="lg:mt-7 4xxl:mt-10 mt-5 lg:pl-12 xl:pl-0 pl-10">
+          <button
+            class="bg-primary lg:px-6 md:px-6 md:py-2 lg:py-2 4xxl:px-10 4xxl:py-4 rounded text-white lg:text-lg 2xl:text-xl"
+          >
+            Register
+          </button>
+        </div>
+      </div>
+      <div
+        class="lg:w-[391px] 4xxl:w-[550px] h-full w-[300px] lg:-mt-6 4xxl:mt-10 lg:ml-0 md:ml-96 ml-10"
+      >
+        <img
+          src="./assets/hero-illustration.svg"
+          class="object-cover lg:w-[391px] 4xl:w-[491px]"
+        />
+      </div>
+    </section>
+
+    <!--hero section ends-->
+
+    <!--client section starts-->
+    <section class="lg:mt-12 2xl:mt-12 mt-8 lg:mt-2 4xxl:mt-14 mb-14">
+      <h2
+        class="text-center text-heading lg:text-2xl 4xl:text-3xl 5xl:text-[3rem] text-[1.6rem] font-bold"
+      >
+        Our Clients
+      </h2>
+      <p
+        class="mt-4 text-center text-textPrimary lg:text-base text-base 4xl:text-xl text-base"
+      >
+        We have been working with some Fortune 500+ clients
+      </p>
+
+      <div class="lg:px-96 px-10 w-full mt-8 lg:mt-2 overflow-hidden">
+        <div class="glide multi1">
+          <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides lg:pt-10 flex lg:w-full w-full">
+              <li class="glide__slide">
+                <img src="./assets/logo_1.svg" alt="Logo 1" />
+              </li>
+              <li class="glide__slide">
+                <img src="./assets/logo_2.svg" alt="Logo 2" />
+              </li>
+              <li class="glide__slide">
+                <img src="./assets/logo_3.svg" alt="Logo 3" />
+              </li>
+
+              <li class="glide__slide">
+                <img src="./assets/logo_4.svg" alt="Logo 4" />
+              </li>
+              <li class="glide__slide">
+                <img src="./assets/logo_5.svg" alt="Logo 5" />
+              </li>
+              <li class="glide__slide">
+                <img src="./assets/logo_6.svg" alt="Logo 6" />
+              </li>
+              <li class="glide__slide">
+                <img src="./assets/logo_7.svg" alt="Logo 7" />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--client section ends-->
+
+    <!--community section start-->
+    <section class="lg:mt-20 mt-8 4xxl:mt-14 mb-14">
+      <div class="flex justify-center">
+        <h2
+          class="text-center text-heading lg:text-2xl 4xl:text-3xl 5xl:text-[3rem] text-[1.6rem] font-bold lg:w-[542px]"
+        >
+          Manage your entire community in a single system
+        </h2>
+      </div>
+      <p
+        class="mt-4 text-center text-textPrimary lg:text-base text-base 4xl:text-xl text-base"
+      >
+        Who is Nextcent suitable for?
+      </p>
+      <div
+        class="mt-10 flex lg:flex-row w-screen flex-col lg:justify-around justify-center items-center"
+      >
+        <div
+          class="shadow-lg lg:w-[299px] w-[260px] h-auto flex flex-col items-center justify-center py-4"
+        >
+          <img src="./assets/icon_1.svg" alt="icon" class="mt-4" />
+          <h2
+            class="text-heading lg:text-2xl 4xl:text-3xl 5xl:text-[3rem] text-[1.6rem] font-bold text-center mt-4"
+          >
+            Membership Organisations
+          </h2>
+          <p
+            class="text-center text-textPrimary lg:text-[0.2rem] 4xl:text-base text-sm px-6 mt-4"
+          >
+            Our membership management software provides full automation of
+            membership renewals and payments
+          </p>
+        </div>
+        <div
+          class="shadow-lg lg:w-[299px] w-[260px] h-auto flex flex-col items-center justify-center py-4"
+        >
+          <img src="./assets/icon_2.svg" alt="icon" class="mt-4" />
+          <h2
+            class="text-heading lg:text-2xl 4xl:text-3xl 5xl:text-[3rem] text-[1.6rem] font-bold text-center mt-4"
+          >
+            Clubs And Groups
+          </h2>
+          <p
+            class="text-center text-textPrimary lg:text-[0.2rem] 4xl:text-base text-sm px-6 mt-4"
+          >
+            Our membership management software provides full automation of
+            membership renewals and payments
+          </p>
+        </div>
+        <div
+          class="shadow-lg lg:w-[299px] w-[260px] h-auto flex flex-col items-center justify-center py-4"
+        >
+          <img src="./assets/icon_3.svg" alt="icon" class="mt-4" />
+          <h2
+            class="text-heading lg:text-2xl 4xl:text-3xl 5xl:text-[3rem] text-[1.6rem] font-bold text-center mt-4"
+          >
+            National Associations
+          </h2>
+          <p
+            class="text-center text-textPrimary lg:text-[0.2rem] 4xl:text-base text-sm px-6 mt-4"
+          >
+            Our membership management software provides full automation of
+            membership renewals and payments
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!--commnunity section end-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.0.2/glide.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const toggleButton = document.getElementById("menu_icon");
+        const drawer = document.getElementById("drawer");
+        const closeButton = document.getElementById("close_button");
+
+        toggleButton.addEventListener("click", function () {
+          if (
+            drawer.classList.contains("w-0") &&
+            drawer.classList.contains("p-0")
+          ) {
+            drawer.classList.remove("w-0");
+            drawer.classList.remove("p-0");
+
+            drawer.classList.add("w-64"); // Change width as needed
+            drawer.classList.add("p-4"); // Change width as needed
+          } else {
+            drawer.classList.remove("w-64");
+            drawer.classList.remove("p-4"); // Change width as needed
+
+            drawer.classList.add("w-0");
+            drawer.classList.add("p-0"); // Change width as needed
+          }
+        });
+        closeButton.addEventListener("click", function () {
+          drawer.classList.remove("w-64");
+          drawer.classList.remove("p-4");
+          drawer.classList.add("w-0");
+          drawer.classList.remove("p-0");
+        });
+
+        var glideMulti1 = new Glide(".multi1", {
+          type: "carousel",
+          animationDuration: 2000,
+          autoplay: 4500,
+          startAt: 3,
+          perView: 5,
+          focusAt: "center",
+
+          gap: 8,
+
+          breakpoints: {
+            1024: {
+              perView: 5,
+            },
+            768: {
+              perView: 4,
+            },
+            576: {
+              perView: 3,
+              gap: 2,
+            },
+          },
+        });
+
+        glideMulti1.mount();
+      });
+    </script>
+  </body>
+</html>
